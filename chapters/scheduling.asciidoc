@@ -698,7 +698,7 @@ letting schedulers execute on that plan until a new plan is set up.
 Every 2000*CONTEXT_REDS reductions a scheduler calculates
 a migration path per priority per scheduler by looking at the workload
 of all schedulers. The migration path can have three different types of
-values: 1) cleared 2) migrate to scheduler # 3) immigrate from
+values: 1) cleared 2) migrate to scheduler # 3) emmigrate from
 scheduler #
 
 When a process becomes ready (for example by receiving a message or
@@ -758,7 +758,7 @@ marked for emigration and any scheduler with a shorter max run queue
 than average (S3, S4) will be targeted for immigration.
 
 This is done by looping over the ordered set of schedulers with two
-indices (immigrate from (+fix+)) and (emigrate to (+tix+)). In each
+indices (emigrate from (+fix+)) and (immigrate to (+tix+)). In each
 iteration of the a loop the immigration path of S[tix] is set to S[fix]
 and the emigration path of S[fix] is set to S[tix]. Then tix is increased
 and fix decreased till they both pass the balance point. If one index
